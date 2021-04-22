@@ -8,36 +8,51 @@ body {
 
     .movieTitle {
         position: relative;
-        h5 {
-            font-size: 4em;
-            margin: 0.1em;
-        }
+        
         img {
             max-width: 100vw;
         }
 
-        .movieReleaseDate {
-
-            .movieReleaseYear{}
-            .movieReleaseMonth{
-                display: none;
+        .basicInfo{
+            display: flex;
+            flex-direction: row;
+            
+            font-size: 4em;
+            h5 {
+                margin: 0.1em;
             }
-            .movieReleaseDay{
-                display: none;
+            .movieReleaseDate {
+                margin: 0 0.1em 0 0;
+                .movieReleaseYear{
+                    &::before{
+                        content: '(';
+                    }
+                    &::after{
+                        content: ')';
+                    }
+                }
+                .movieReleaseMonth{
+                    display: none;
+                }
+                .movieReleaseDay{
+                    display: none;
+                }
+            }
+            .movieLanguages {
+                .movieLanguage{
+                    .engLangName{
+                        display: none;
+                    }
+                    .isoLangName{}
+                    .localLangName{
+                        display: none;
+                    }
+                }
             }
         }
 
-        .movieLanguages {
-            .movieLanguage{
-                .engLangName{
-                    display: none;
-                }
-                .isoLangName{}
-                .localLangName{
-                    display: none;
-                }
-            }
-        }
+        
+
 
         .movieVotes {
             width:fit-content;

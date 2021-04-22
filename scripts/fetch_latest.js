@@ -57,21 +57,34 @@ function appendToPage(jsonData){
     let node = document.createElement('article');
     node.classList.add('movieTitle');
     
-    let title = document.createElement('h5');
-    title.appendChild(document.createTextNode(jsonData.original_title));
+    
 
     let poster = createPosterNode(jsonData.poster_path, jsonData.original_title);
-    let year = createYearNode(jsonData.release_date);
-    let languages = createLangNode(jsonData.spoken_languages);
+    let basic_info = createMovieBasicInfo(jsonData);
     let vote_average = createVoteNode(jsonData.vote_average);
 
     node.appendChild(poster);
-    node.appendChild(title);
-    node.appendChild(year);
-    node.appendChild(languages);
+    node.appendChild(basic_info);
     node.appendChild(vote_average);
     document.getElementById('movieList').appendChild(node);
 
+}
+
+function createMovieBasicInfo(jsonData) {
+    let basic_info = document.createElement('section');
+    basic_info.setAttribute('class', 'basicInfo');
+
+    let title = document.createElement('h5');
+    title.appendChild(document.createTextNode(jsonData.original_title));
+    let year = createYearNode(jsonData.release_date);
+    let languages = createLangNode(jsonData.spoken_languages);
+
+    
+    basic_info.appendChild(title);
+    basic_info.appendChild(year);
+    basic_info.appendChild(languages);
+
+    return basic_info;
 }
 
 function createPosterNode(posterPath, original_title) {
