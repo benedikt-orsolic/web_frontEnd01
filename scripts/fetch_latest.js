@@ -101,15 +101,15 @@ function createYearNode(release_date) {
 
     let year = document.createElement('span');
     year.appendChild(document.createTextNode(dateArray[0]));
-    year.setAttribute('class', 'moveReleaseYear');
+    year.setAttribute('class', 'movieReleaseYear');
 
     let month = document.createElement('span');
     month.appendChild(document.createTextNode(dateArray[1]));
-    month.setAttribute('class', 'moveReleaseMonth');
+    month.setAttribute('class', 'movieReleaseMonth');
 
     let day = document.createElement('span');
     day.appendChild(document.createTextNode(dateArray[2]));
-    day.setAttribute('class', 'moveReleaseDay');
+    day.setAttribute('class', 'movieReleaseDay');
 
     date.appendChild(year);
     date.appendChild(month);
