@@ -22,8 +22,6 @@ function loadMoreMovies () {
     let scrollPos = window.scrollY + window.innerHeight;
     let height = (document.height !== undefined) ? document.height : document.body.offsetHeight;
 
-    console.log( scrollPos + ' ' + height);
-
     if( scrollPos >= height * 0.9) addMovie( ++loadMoreMovies.counter );
 }
 
@@ -123,8 +121,6 @@ function createYearNode(release_date) {
 function createLangNode(spoken_languages) {
     let languages = document.createElement('section');
     languages.setAttribute('class', 'movieLanguages');
-
-    console.log(spoken_languages)
 
     for(let i = 0; i < spoken_languages.length; i++){
         let lang = document.createElement('section');
