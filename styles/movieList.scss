@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+#movieList {
+
+    .movieTitle {
+
+        h5 {
+            font-size: 4em;
+            margin: 0.1em;
+        }
+        img {
+            max-width: 100vw;
+        }
+    }
+}
