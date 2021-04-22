@@ -39,6 +39,7 @@ body {
                 }
             }
             .movieLanguages {
+                
                 .movieLanguage{
                     .engLangName{
                         display: none;
@@ -48,6 +49,11 @@ body {
                         display: none;
                     }
                 }
+                
+                & section:nth-child( n+2 ){
+                    display: none;
+                }
+                
             }
         }
 
