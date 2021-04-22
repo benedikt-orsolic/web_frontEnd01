@@ -63,9 +63,13 @@ function appendToPage(jsonData){
     title.appendChild(document.createTextNode(jsonData.original_title));
 
     let poster = createPosterNode(jsonData.poster_path, jsonData.original_title);
+    let year = createYearNode(jsonData.release_date);
+    let languages = createLangNode(jsonData.spoken_languages);
 
-    node.appendChild(title);
     node.appendChild(poster);
+    node.appendChild(title);
+    node.appendChild(year);
+    node.appendChild(languages);
     document.getElementById('movieList').appendChild(node);
 
 }
@@ -87,4 +91,62 @@ function createPosterNode(posterPath, original_title) {
     xhttp.send();
 
     return poster;
+}
+
+function createYearNode(release_date) {
+    let date = document.createElement('p');
+    date.setAttribute('class', 'movieReleaseDate');
+
+    let dateArray = release_date.split('-');
+
+    let year = document.createElement('span');
+    year.appendChild(document.createTextNode(dateArray[0]));
+    year.setAttribute('class', 'moveReleaseYear');
+
+    let month = document.createElement('span');
+    month.appendChild(document.createTextNode(dateArray[1]));
+    month.setAttribute('class', 'moveReleaseMonth');
+
+    let day = document.createElement('span');
+    day.appendChild(document.createTextNode(dateArray[2]));
+    day.setAttribute('class', 'moveReleaseDay');
+
+    date.appendChild(year);
+    date.appendChild(month);
+    date.appendChild(day);
+
+    return date;
+}
+
+function createLangNode(spoken_languages) {
+    let languages = document.createElement('section');
+    languages.setAttribute('class', 'movieLanguages');
+
+    console.log(spoken_languages)
+
+    for(let i = 0; i < spoken_languages.length; i++){
+        let lang = document.createElement('section');
+        lang.setAttribute('class', 'movieLanguage');
+
+        let eng_name = document.createElement('span');
+        eng_name.appendChild(document.createTextNode(spoken_languages[i].english_name));
+        eng_name.setAttribute('class', 'engLangName');
+
+        let iso_name = document.createElement('span');
+        iso_name.appendChild(document.createTextNode(spoken_languages[i].iso_639_1));
+        iso_name.setAttribute('class', 'isoLangName');
+
+        let local_name = document.createElement('span');
+        local_name.appendChild(document.createTextNode(spoken_languages[i].name));
+        local_name.setAttribute('class', 'localLangName');
+
+        lang.appendChild(eng_name);
+        lang.appendChild(iso_name);
+        lang.appendChild(local_name);
+
+        languages.appendChild(lang);
+
+    }
+
+    return languages;
 }
