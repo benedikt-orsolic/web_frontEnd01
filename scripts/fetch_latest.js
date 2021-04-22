@@ -151,7 +151,7 @@ function createLangNode(spoken_languages) {
 
 function createVoteNode(vote_average) {
     let vote = document.createElement('p');
-    vote.setAttribute('class', 'moveVotes');
+    vote.setAttribute('class', 'movieVotes');
 
     vote.appendChild(document.createTextNode(vote_average));
 
