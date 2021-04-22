@@ -7,7 +7,7 @@ body {
 #movieList {
 
     .movieTitle {
-
+        position: relative;
         h5 {
             font-size: 4em;
             margin: 0.1em;
@@ -37,6 +37,21 @@ body {
                     display: none;
                 }
             }
+        }
+
+        .movieVotes {
+            width:fit-content;
+            font-size: 2em;
+            padding: 0.2em;
+
+            border: 0.2em solid black;
+            border-radius: 16em;
+
+            position: absolute;
+
+            background-color: white;
+            top:0;
+            right: 0;
         }
     }
 }
