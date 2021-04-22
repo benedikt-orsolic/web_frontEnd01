@@ -65,11 +65,13 @@ function appendToPage(jsonData){
     let poster = createPosterNode(jsonData.poster_path, jsonData.original_title);
     let year = createYearNode(jsonData.release_date);
     let languages = createLangNode(jsonData.spoken_languages);
+    let vote_average = createVoteNode(jsonData.vote_average);
 
     node.appendChild(poster);
     node.appendChild(title);
     node.appendChild(year);
     node.appendChild(languages);
+    node.appendChild(vote_average);
     document.getElementById('movieList').appendChild(node);
 
 }
@@ -149,4 +151,13 @@ function createLangNode(spoken_languages) {
     }
 
     return languages;
+}
+
+function createVoteNode(vote_average) {
+    let vote = document.createElement('p');
+    vote.setAttribute('class', 'moveVotes');
+
+    vote.appendChild(document.createTextNode(vote_average));
+
+    return vote;
 }
