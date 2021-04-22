@@ -1,5 +1,42 @@
+if(document.addEventListener) {
+    window.addEventListener('scroll', function(){
+        loadMoreMovies();
+    });
+    window.addEventListener('load', function(){
+        initialLoad();
+    })
+}
 
-addMovie(550)
+
+// Loading functions
+
+
+
+
+
+function loadMoreMovies () {
+    if( loadMoreMovies.counter == undefined ) {
+        loadMoreMovies.counter = 0;
+    }
+
+    let scrollPos = window.scrollY + window.innerHeight;
+    let height = (document.height !== undefined) ? document.height : document.body.offsetHeight;
+
+    console.log( scrollPos + ' ' + height);
+
+    if( scrollPos >= height * 0.9) addMovie( ++loadMoreMovies.counter );
+}
+
+function initialLoad() {
+    addMovie(550)
+}
+
+
+
+
+
+// Add move to page functions
+
 
 
 
