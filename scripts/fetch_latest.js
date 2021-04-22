@@ -15,12 +15,9 @@ function addMovie(moveId) {
 
     xhttp.open('GET', BASE_URL + 'movie/' + moveId + '?api_key=' + API_KEY, true);
     xhttp.send();
-    
 }
 
-
 function appendToPage(jsonData){
-    console.log(jsonData);
 
     let node = document.createElement('article');
     node.classList.add('movieTitle');
@@ -44,9 +41,6 @@ function createPosterNode(posterPath) {
     xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             let config = JSON.parse(this.responseText);
-            console.log(config)
-            
-    
             poster.setAttribute('src', config.images.secure_base_url + config.images.poster_sizes[config.images.poster_sizes.length - 1] + posterPath)
         }
     }
