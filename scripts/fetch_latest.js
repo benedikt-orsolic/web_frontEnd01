@@ -1,19 +1,22 @@
 
+addMovie(550)
 
 
 
-const xhttp = new XMLHttpRequest();
 
+function addMovie(moveId) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
 
-xhttp.onreadystatechange = function () {
-
-    if(this.readyState == 4 && this.status == 200){
-        appendToPage(JSON.parse(this.responseText));
+        if(this.readyState == 4 && this.status == 200){
+            appendToPage(JSON.parse(this.responseText));
+        }
     }
-}
 
-xhttp.open('GET', BASE_URL + 'movie/550?api_key=' + API_KEY, true);
-xhttp.send();
+    xhttp.open('GET', BASE_URL + 'movie/' + moveId + '?api_key=' + API_KEY, true);
+    xhttp.send();
+    
+}
 
 
 function appendToPage(jsonData){
@@ -35,8 +38,6 @@ function appendToPage(jsonData){
 
 function createPosterNode(posterPath) {
 
-    
-    
     let poster = document.createElement('img');
 
     const xhttp = new XMLHttpRequest();
