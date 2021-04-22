@@ -26,5 +26,17 @@ body {
                 display: none;
             }
         }
+
+        .movieLanguages {
+            .movieLanguage{
+                .engLangName{
+                    display: none;
+                }
+                .isoLangName{}
+                .localLangName{
+                    display: none;
+                }
+            }
+        }
     }
 }
