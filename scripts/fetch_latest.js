@@ -25,7 +25,7 @@ function appendToPage(jsonData){
     let title = document.createElement('h5');
     title.appendChild(document.createTextNode(jsonData.original_title));
 
-    let poster = createPosterNode(jsonData.poster_path);
+    let poster = createPosterNode(jsonData.poster_path, jsonData.original_title);
 
     node.appendChild(title);
     node.appendChild(poster);
@@ -33,7 +33,7 @@ function appendToPage(jsonData){
 
 }
 
-function createPosterNode(posterPath) {
+function createPosterNode(posterPath, original_title) {
 
     let poster = document.createElement('img');
 
@@ -42,6 +42,7 @@ function createPosterNode(posterPath) {
         if(this.readyState == 4 && this.status == 200){
             let config = JSON.parse(this.responseText);
             poster.setAttribute('src', config.images.secure_base_url + config.images.poster_sizes[config.images.poster_sizes.length - 1] + posterPath)
+            poster.setAttribute('alt', original_title + ' poster img');
         }
     }
     
