@@ -15,5 +15,16 @@ body {
         img {
             max-width: 100vw;
         }
+
+        .movieReleaseDate {
+
+            .movieReleaseYear{}
+            .movieReleaseMonth{
+                display: none;
+            }
+            .movieReleaseDay{
+                display: none;
+            }
+        }
     }
 }
